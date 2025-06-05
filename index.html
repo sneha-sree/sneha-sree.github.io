@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEKKANTI SNEHA SREE - Resume</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #FFFFFF;
+            color: #333;
+            line-height: 1.6;
+            margin: 7mm 7mm;
+            max-width: 210mm;
+            box-sizing: border-box;
+            font-size: 13px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.08);
+        }
+
+        /* --- Header Section (Remains full width) --- */
+        .header-section {
+            background-color: #1A2B3D;
+            padding: 25px 30px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            color: #FDFDFD;
+
+            display: flex;
+            align-items: center;
+            min-height: 120px;
+        }
+
+        .profile-photo-left {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #E0B070;
+            margin-right: 20px;
+            flex-shrink: 0;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+
+        .header-text-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            flex-grow: 1;
+            transform: translateX(-25px);
+        }
+
+        .personal-name {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 3em;
+            color: #E0B070;
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 8px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .contact-info-right p {
+            font-size: 13px;
+            margin: 2px 0;
+            color: #FDFDFD;
+            line-height: 1.4;
+        }
+
+        .contact-info-right a {
+            color: #E0B070;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info-right a:hover {
+            text-decoration: underline;
+            color: #FFD700;
+        }
+
+        /* --- Main Content Grid Layout --- */
+        .main-content-grid {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 20px;
+            padding-top: 15px;
+        }
+
+        .sidebar-column {
+            background-color: #E6F0F6;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .main-column {
+            padding: 0 15px;
+        }
+
+        /* --- Section Titles & Content Blocks --- */
+        .section-title {
+            background-color: #1A2B3D;
+            padding: 8px 15px;
+            text-align: center;
+            margin-bottom: 10px;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title h3 {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 1.6em;
+            margin: 0;
+            color: #FDFDFD;
+            font-weight: 700;
+            text-shadow: 0.5px 0.5px 1px rgba(0,0,0,0.2);
+        }
+
+        .content-block {
+            margin-bottom: 12px;
+            padding: 0 15px 15px 15px;
+        }
+
+        .content-block p {
+            font-size: 13.5px;
+            margin-bottom: 6px;
+            color: #444;
+        }
+
+        .content-block ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .content-block ul li {
+            font-size: 13.5px;
+            margin-bottom: 4px;
+            position: relative;
+            padding-left: 15px;
+        }
+        .content-block ul li::before {
+            content: '•';
+            color: #E0B070;
+            position: absolute;
+            left: 0;
+            font-size: 1.2em;
+            line-height: 1;
+        }
+
+        .content-block strong {
+            color: #222;
+            font-weight: 600;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px dotted #E0B070;
+            height: 0;
+            margin: 25px 0;
+        }
+
+        /* Removed border-left property to remove the lines */
+        .project-item, .internship-item, .activity-item, .certification-item {
+            margin-bottom: 12px;
+            padding-left: 8px; /* Kept padding for indentation */
+        }
+        .project-item strong, .internship-item strong, .activity-item strong, .certification-item strong {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 15px;
+            display: block;
+            margin-bottom: 3px;
+            color: #1A2B3D;
+        }
+        .project-item p, .internship-item p, .activity-item p, .certification-item p {
+            margin-left: 0;
+            font-size: 12.5px;
+            color: #555;
+        }
+
+        /* --- Table specific styles for Educational Details --- */
+        .content-block table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 5px;
+            font-size: 13px;
+        }
+
+        .content-block th,
+        .content-block td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .content-block th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .content-block td strong {
+            color: #333;
+            font-weight: bold;
+        }
+
+        /* Print Media Queries - Adjustments for print to save ink/layout */
+        @media print {
+            body {
+                margin: 5mm 5mm;
+                background-color: #FFFFFF;
+                box-shadow: none;
+                font-size: 11px;
+                line-height: 1.1;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .header-section, .section-title {
+                box-shadow: none;
+                background-color: #1A2B3D !important;
+                color: #FDFDFD !important;
+            }
+            .section-title h3 {
+                 color: #FDFDFD !important;
+                 text-shadow: none !important;
+            }
+            .personal-name {
+                 color: #E0B070 !important;
+                 text-shadow: none !important;
+            }
+            .contact-info-right p {
+                color: #FDFDFD !important;
+            }
+            .contact-info-right a {
+                color: #E0B070 !important;
+                text-decoration: underline !important;
+            }
+            .profile-photo-left {
+                border-color: #E0B070 !important;
+                box-shadow: none !important;
+            }
+            a {
+                text-decoration: underline;
+                color: #000;
+            }
+
+            /* --- Grid adjustments for Print: Stack columns --- */
+            .main-content-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+                padding-top: 10px;
+            }
+            .sidebar-column {
+                background-color: #E6F0F6 !important;
+                box-shadow: none !important;
+                padding: 10px;
+            }
+            .main-column {
+                padding: 0 10px;
+            }
+
+            /* General spacing adjustments for print */
+            .header-section, .section-title, .content-block,
+            .project-item, .internship-item, .activity-item, .certification-item {
+                margin-bottom: 7px;
+                padding: 0 5px;
+            }
+            .header-section {
+                padding: 10px 15px;
+                min-height: auto;
+            }
+            .profile-photo-left {
+                width: 60px !important;
+                height: 60px !important;
+                margin-right: 10px !important;
+            }
+            .personal-name {
+                font-size: 1.8em !important;
+            }
+            .header-text-content {
+                transform: translateX(-10px) !important;
+            }
+            hr {
+                margin: 15px 0;
+                height: 1px;
+                border-top: 1px dotted #CCC !important;
+            }
+            .content-block ul li::before {
+                color: #1A2B3D !important;
+            }
+            .project-item strong, .internship-item strong, .activity-item strong, .certification-item strong {
+                color: #1A2B3D !important;
+            }
+
+            /* Table specific print adjustments */
+            .content-block table {
+                font-size: 11px;
+            }
+            .content-block th,
+            .content-block td {
+                padding: 5px;
+                border-color: #bbb !important;
+            }
+            .content-block th {
+                background-color: #e0e0e0 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header-section">
+        <img src="passpoet size photo.jpeg" alt="Profile Photo" class="profile-photo-left">
+
+        <div class="header-text-content">
+            <h1 class="personal-name">NEKKANTI SNEHA SREE</h1>
+            <div class="contact-info-right">
+                <p>✉️ Email: snehasreenekkanti05@gmail.com</p>
+                <p>☎️ Contact: 9515058413</p>
+                <p>🟦 LinkedIn: <a href="https://www.linkedin.com/in/sneha-sree-nekkanti-78237a312/" target="_blank">Sneha Sree Nekkanti</a></p>
+            </div>
+        </div>
+    </header>
+
+    <hr>
+
+    <div class="main-content-grid">
+        <div class="sidebar-column">
+            <section>
+                <div class="section-title">
+                    <h3>SKILLS SET</h3>
+                </div>
+                <div class="content-block">
+                    <p><strong>Tools:</strong> MATLAB, Vivado, Xilinx, ArduinoIDE</p>
+                    <p><strong>Core Subjects:</strong> Digital Logic Design, Digital/Optical Communications, Analog Circuits</p>
+                    <p><strong>Programming:</strong> C, Java, Python</p>
+                </div>
+            </section>
+
+            <section>
+                <div class="section-title">
+                    <h3>PROJECTS</h3>
+                </div>
+                <div class="content-block">
+                    <div class="project-item">
+                        <strong>AIR QUALITY MONITORING SYSTEM</strong>
+                        <p>Designed/implemented real-time air quality monitoring using Arduino and sensors.</p>
+                    </div>
+                    <div class="project-item">
+                        <strong>COMMUNITY SERVICE PROJECT</strong>
+                        <p>Organized/participated in surveys, services, school teachings. Gained teamwork & social engagement skills.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="section-title">
+                    <h3>INTERNSHIP</h3>
+                </div>
+                <div class="content-block">
+                    <div class="internship-item">
+                        <strong>DLRL - 64 Channel Data Acquisition System</strong>
+                        <p>Practical experience at DLRL on 64-channel data acquisition. Focused on data processing and signal integrity aspects.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="section-title">
+                    <h3>LANGUAGES</h3>
+                </div>
+                <div class="content-block">
+                    <p><strong>English:</strong> Proficient</p>
+                    <p><strong>Telugu:</strong> Proficient</p>
+                    <p><strong>Hindi:</strong> Basic</p>
+                </div>
+            </section>
+        </div>
+
+        <div class="main-column">
+            <section>
+                <div class="section-title">
+                    <h3>CAREER OBJECTIVE</h3>
+                </div>
+                <div class="content-block">
+                    <p>Highly motivated and adaptable individual seeking an entry-level position to apply strong foundational skills and a proactive approach, contributing effectively to team success and fostering continuous growth within a dynamic organization.</p>
+                </div>
+            </section>
+
+            <section>
+                <div class="section-title">
+                    <h3>EDUCATIONAL DETAILS</h3>
+                </div>
+                <div class="content-block">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Qualification</th>
+                                <th>Institution</th>
+                                <th>Year</th>
+                                <th>Grade</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>B.Tech (ECE)</strong></td>
+                                <td>Prasad V Potluri Siddhartha Institute of Technology</td>
+                                <td>2026</td>
+                                <td>CGPA: 8.79</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Intermediate (State)</strong></td>
+                                <td>Narayana Junior College</td>
+                                <td>2022</td>
+                                <td>Percentage: 94%</td>
+                            </tr>
+                            <tr>
+                                <td><strong>10 (CBSE)</strong></td>
+                                <td>Narayana School</td>
+                                <td>2020</td>
+                                <td>Percentage: 86%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section>
+                <div class="section-title">
+                    <h3>CERTIFICATIONS</h3>
+                </div>
+                <div class="content-block">
+                    <div class="certification-item">
+                        <strong>Google Cloud Computation</strong>
+                        <p>Link: <a href="file:///C:/Users/sneha/Downloads/gccf.pdf" target="_blank">file:///C:/Users/sneha/Downloads/gccf.pdf</a><br><small></small></p>
+                    </div>
+                    <div class="certification-item">
+                        <strong>NPTEL - System Design Through Verilog - 53%</strong>
+                        <p>Link: <a href="file:///C:/Users/sneha/Downloads/System%20Design%20Through%20Verilog-1%20(1).pdf" target="_blank">file:///C:/Users/sneha/Downloads/System%20Design%20Through%20Verilog-1%20(1).pdf</a><br><small></small></p>
+                    </div>
+                    <div class="certification-item">
+                        <strong>Java Training - IIT Bombay - 95%</strong>
+                        <p>Link: <a href="file:///C:/Users/sneha/Downloads/NEKKANTI-SNEHA-SREE-Participant-Certificate.pdf" target="_blank">file:///C:/Users/sneha/Downloads/NEKKANTI-SNEHA-SREE-Participant-Certificate.pdf</a><br><small></small></p>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="section-title">
+                    <h3>EXTRACURRICULAR ACTIVITIES</h3>
+                </div>
+                <div class="content-block">
+                    <div class="activity-item">
+                        <strong>NSS Member & Volunteer</strong>
+                        <p>Actively volunteered with NSS (National Service Scheme); demonstrated community development commitment.</p>
+                    </div>
+                    <div class="activity-item">
+                        <strong>Public Speaking & Debating</strong>
+                        <p>Honed persuasive communication and critical thinking skills.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+</body>
+</html>
